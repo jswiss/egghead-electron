@@ -1,22 +1,39 @@
 const { app, Menu } = require('electron');
+const { showMessage } = require('./dialogues.js');
 const isWindows = process.platform === 'win32';
 
-module.exports = {
-  setMainMenu,
-}
 
-function setMainMenu() {
+function setMainMenu(mainWindow) {
   const template = [
     {
       label: isWindows ? 'File' : app.getName(),
       submenu: [
+        {
+          label: 'Say Hello',
+          click() {
+            showMessage(mainWindow);
+          }
+        },
+        {
+          label: 'Save Memory Usage Info',
+          click() {
+
+          }
+        },
+        {
+          label: 'Open File',
+          click() {
+
+          }
+        },
         {
           label: isWindows ? 'Exit' : `Quit ${app.getName()}`,
           accelerator: isWindows ? 'Alt+F4' : 'CmdOrCtrl+Q',
           click() {
             app.quit();
           }
-        }
+        },
+        { type: 'separator' },
       ]
     },
     {
@@ -25,7 +42,7 @@ function setMainMenu() {
         { role: 'undo' },
         { role: 'redo' },
         // does nothing, just a visual line
-        { role: 'separator' },
+        { type: 'separator' },
         { role: 'cut' },
         { role: 'copy' },
         { role: 'paste' },
@@ -36,4 +53,8 @@ function setMainMenu() {
 
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
+}
+
+module.exports = {
+  setMainMenu,
 }
