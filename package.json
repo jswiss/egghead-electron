@@ -4,11 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron index.js"
+    "start": "electron main.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.7.10"
+    "electron": "^1.7.10",
+    "electron-debug": "^1.5.0"
   }
 }

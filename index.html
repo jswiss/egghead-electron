@@ -12,11 +12,18 @@
 <body>
   <h1>You are running Electron version:
     <br/>
-    <span id="version">1.7.10</span>
+    <span id="version"></span>
   </h1>
 
   <script>
     require('./renderer.js');
+    document.addEventListener("keydown", function (e) {
+      if (e.which === 123) {
+        require('remote').getCurrentWindow().toggleDevTools();
+      } else if (e.which === 116) {
+        location.reload();
+      }
+    });
   </script>
 </body>
 
