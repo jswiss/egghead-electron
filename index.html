@@ -14,16 +14,10 @@
     <br/>
     <span id="version"></span>
   </h1>
+  <input type="text">
 
   <script>
     require('./renderer.js');
-    document.addEventListener("keydown", function (e) {
-      if (e.which === 123) {
-        require('remote').getCurrentWindow().toggleDevTools();
-      } else if (e.which === 116) {
-        location.reload();
-      }
-    });
   </script>
 </body>
 
