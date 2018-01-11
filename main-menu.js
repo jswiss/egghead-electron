@@ -1,5 +1,5 @@
 const { app, Menu } = require('electron');
-const { showMessage } = require('./dialogues.js');
+const { showMessage, showSaveDialog, showOpenDialog } = require('./dialogues.js');
 const isWindows = process.platform === 'win32';
 
 
@@ -17,13 +17,13 @@ function setMainMenu(mainWindow) {
         {
           label: 'Save Memory Usage Info',
           click() {
-
+            showSaveDialog(mainWindow);
           }
         },
         {
           label: 'Open File',
           click() {
-
+            showOpenDialog(mainWindow);
           }
         },
         {
